@@ -309,6 +309,7 @@ img {
     right: 0;
     color: white;
     padding: 15px;
+    cursor: pointer;
 }
 
 .admin-title {
@@ -341,4 +342,23 @@ img {
     display: flex;
     justify-content: space-between;
     padding: 10px 0;
+}
+
+.admin_form{
+    margin-right: 100px;
+    margin-left: 100px;
+}
+
+
+.admin_btn{
+    border-radius: var(--border-radius);
+}
+
+
+.hr{
+    margin-top: 50px;
+    border: dotted 5px;
+    border-bottom: none;
+    border-color: var(--grey);
+    width: 50px;
 }

@@ -53,17 +53,25 @@ router.get("/post/:id", async (req, res) => {
   }
 });
 
-/*  post/ 
+/*  POST/ 
     post :search/ 
 */
-router.get("/search", async (req, res) => {
+router.post("/search", async (req, res) => {
   try {
-    const data = await post.findById({ _id: slug });
+    let searchTerm = req.body.searchTerm
+    const searchNoSpecialCharacters = searchTerm.replace(/[^a-zA-Z0-9]/g,'')
+
+    const data = await post.find({
+      $or: [
+        {title: {$regex: new RegExp(searchNoSpecialCharacters)}},
+        {body: {$regex: new RegExp(searchNoSpecialCharacters)}}
+      ]
+    })
     const locals = {
       title: data.title,
     };
 
-    res.render("search", { locals, data });
+    res.render("search",{locals,data})
   } catch (error) {
     console.log(error);
   }
@@ -138,3 +146,9 @@ function insertPostData() {
   ]);
 }
 // insertPostData();
+
+
+
+
+
+
