@@ -6,6 +6,7 @@ import connectDB from './server/config/db.js';
 import adminRoutes from './server/routes/admin.js';
 import cookieParser from 'cookie-parser';
 import MongoStore from 'connect-mongo';
+import session from 'express-session';
 
 
 const app = express();
@@ -13,12 +14,22 @@ const PORT = 3000 | process.env.PORT;
 
 connectDB();
 
-app.use(express.urlencoded({extended:true}))
-app.use(express.json())
+app.use(express.urlencoded({extended:true}));
+app.use(express.json());
+app.use(cookieParser());
 
+app.use(session({
+    secret : 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    store: MongoStore.create({
+        mongoUrl: process.env.MONGO_URI
+    }),
+    // cookie:{maxAge:new Date(Date.now()+3600000)}
 
+}))
 
-app.use(express.static('public'))
+app.use(express.static('public'));
 
 app.use(expressEjsLayouts);
 app.set('layout','./layouts/main');

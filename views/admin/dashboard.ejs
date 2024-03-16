@@ -1,0 +1,24 @@
+
+<h1>Welcome Back, <%= curUser.username %></h1>
+
+
+<div class="admin-title">
+    <h2>Posts</h2>
+    <a href="/add-post">+ Add Post</a>
+</div>
+
+
+<ul class="article-ul">
+    <% data.forEach(element=> { %>
+        <li>
+            <a href="/post/<%= element._id %>">
+                <span>
+                    <%= element.title %> &nearr;
+                </span>
+                <span class="article-list__date">
+                    <%= element.createdDate.toDateString() %>
+                </span>
+            </a>
+        </li>
+        <% }) %>
+</ul>
