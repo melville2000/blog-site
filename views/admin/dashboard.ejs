@@ -1,5 +1,7 @@
+<%- include("../partials/header_admin.ejs") %>
 
-<h1>Welcome Back, <%= curUser.username %></h1>
+<h1>Welcome Back, <%= curUser.username %>
+</h1>
 
 
 <div class="admin-title">
@@ -8,16 +10,19 @@
 </div>
 
 
-<ul class="article-ul">
+<ul class="admin-posts">
     <% data.forEach(element=> { %>
         <li>
             <a href="/post/<%= element._id %>">
                 <span>
                     <%= element.title %> &nearr;
                 </span>
-                <span class="article-list__date">
-                    <%= element.createdDate.toDateString() %>
-                </span>
+                <div class="admin-post-controls">
+                    <a href="/edit-post/<%= element._id %>" class="btn btn-admin" style="color: aliceblue;">EDIT</a>
+                    <form action="/delete-post/<%= element._id %>?_method=DELETE" method="POST">
+                        <input type="submit" value="DELETE" class="btn btn-admin" style="color: aliceblue;">
+                    </form>
+                </div>
             </a>
         </li>
         <% }) %>

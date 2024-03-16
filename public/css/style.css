@@ -66,10 +66,26 @@ textarea {
     margin: 4px 2px;
     cursor: pointer;
 }
+.btn-admin{
+    border-radius: 10px;
+}
 
 .button-delete {
     padding: 10px 16px;
     background-color: var(--red);
+}
+
+.logout{
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: solid 5px transparent;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.logout:hover{
+    border: solid 5px #1c1c1c;
+    transition: 0.2s ease-in-out;
 }
 
 img {
@@ -361,4 +377,61 @@ img {
     border-bottom: none;
     border-color: var(--grey);
     width: 50px;
+}
+
+.contact-container{
+    padding: 0px 150px;
+}
+
+.contact-container h1{
+    text-align: center;
+
+}
+
+.contact-inputs{
+    border-radius: 10px;
+}
+
+
+.contact-container label{
+    font-size: var(--font-size-md);
+    font-weight: 700;
+        padding-left: 10px;
+
+}
+
+.contact-container input{
+    border-radius: 10px;
+
+}
+
+.contact-container input:hover{
+    border-color: #faf5ee;
+    transition: 0.3s ease-in-out;
+
+}
+
+.login-btn{
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: solid 5px transparent;
+    font-weight: 700;
+    text-decoration: none;
+    background-color: var(--black);
+    color: white;
+    font-size: var(--font-size-md);
+}
+
+
+.login-btn:hover{
+    border: solid 5px #1c1c1c;
+    background-color: transparent;
+    color: #1c1c1c;
+    transition: 0.2s ease-in-out;
+}
+
+.login{
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
 }

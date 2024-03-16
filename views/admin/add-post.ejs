@@ -1,0 +1,17 @@
+<%- include("../partials/header_admin.ejs") %>
+
+<a href="/dashboard"><h3>&larr;Back</h3></a>
+
+<div class="admin-title">
+    <h2>Add New Post</h2>
+</div>
+
+<form action="/add-post" method="POST">
+    <label for="Title"> <b>Title</b> </label>
+    <input type="text" name="title" placeholder="Enter Title" id="">
+
+    <label for="Title"> <b>Content</b> </label>
+    <textarea name="body" cols="50" rows="10"></textarea>
+
+    <input type="submit" value="Add post" class="btn">
+</form>
